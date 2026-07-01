@@ -27,6 +27,7 @@
     --c-libur-semester:#5b4ea0;
     --c-rapor:#2f9e6e;
     --c-asesmen:#7a7f8c;
+    --c-tka:#c1662e;
     --c-prakerin:#b07d3e;
     --c-cuti:#8fb7e8;
 
@@ -44,11 +45,6 @@
     color:var(--ink);
     font-family: 'Source Sans 3', 'Segoe UI', Tahoma, sans-serif;
     -webkit-font-smoothing:antialiased;
-  }
-
-  @font-face{
-    font-family:'Fraunces-fallback';
-    src:local('Georgia');
   }
 
   h1,h2,h3,.display{
@@ -80,7 +76,7 @@
   }
   .kop-badge{
     flex:0 0 auto;
-    width:60px; height:66px;
+    width:72px; height:80px;
     display:flex; align-items:center; justify-content:center;
     filter: drop-shadow(0 6px 14px rgba(0,0,0,.4));
   }
@@ -108,7 +104,6 @@
   .kop-tp .tp-label{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.55);}
   .kop-tp .tp-value{font-size:22px; font-weight:700; color:var(--gold-400); font-family:Georgia,serif;}
 
-  /* progress ribbon — signature element */
   .progress-wrap{
     max-width:1180px; margin:22px auto 0;
     position:relative; z-index:1;
@@ -148,7 +143,6 @@
   .progress-legend-row .plabel{font-size:11px; color:rgba(255,255,255,.6);}
   .progress-legend-row b{color:var(--gold-400); font-size:13px; display:block;}
 
-  /* ===================== NOTIFICATION ZONE ===================== */
   .notif-zone{
     max-width:1180px; margin:-52px auto 0; padding:0 20px;
     position:relative; z-index:2;
@@ -165,14 +159,14 @@
   }
   @keyframes slideIn{ from{opacity:0; transform:translateY(-6px);} to{opacity:1; transform:translateY(0);} }
   .notif.urgent{border-left-color:var(--c-libur-umum);}
-  .notif.exam{border-left-color:var(--c-asesmen); background:#fafafa;}
+  .notif.exam{border-left-color:var(--c-tka); background:#fdf6f1;}
   .notif-icon{
     flex:0 0 auto; width:34px; height:34px; border-radius:9px;
     display:flex; align-items:center; justify-content:center;
     font-size:16px; background:var(--navy-900); color:var(--gold-400); font-weight:700;
   }
   .notif.urgent .notif-icon{background:var(--c-libur-umum); color:#fff;}
-  .notif.exam .notif-icon{background:var(--c-asesmen); color:#fff;}
+  .notif.exam .notif-icon{background:var(--c-tka); color:#fff; font-size:11px;}
   .notif-body{flex:1; min-width:0;}
   .notif-title{font-size:13.5px; font-weight:700; margin:0 0 2px; color:var(--ink);}
   .notif-desc{font-size:12.5px; color:var(--ink-soft); margin:0;}
@@ -183,7 +177,6 @@
     border-left:5px solid var(--c-rapor);
   }
 
-  /* ===================== TOOLBAR ===================== */
   .toolbar{
     max-width:1180px; margin:22px auto 0; padding:0 20px;
     display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
@@ -205,7 +198,6 @@
   .btn-download:hover{transform:translateY(-1px); box-shadow:0 8px 20px -6px rgba(196,144,31,.75);}
   .btn-download svg{width:16px; height:16px;}
 
-  /* ===================== CALENDAR GRID ===================== */
   .cal-grid{
     max-width:1180px; margin:18px auto 40px; padding:0 20px;
     display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;
@@ -257,13 +249,13 @@
   .day-cell.event{color:#fff; font-weight:700;}
   .day-cell[data-tip]{cursor:default;}
 
-  /* event color classes */
   .ev-mpls{background:var(--c-mpls);}
   .ev-upacara{background:var(--c-upacara); color:var(--navy-950);}
   .ev-libur-umum{background:var(--c-libur-umum);}
   .ev-libur-semester{background:var(--c-libur-semester);}
   .ev-rapor{background:var(--c-rapor);}
   .ev-asesmen{background:var(--c-asesmen);}
+  .ev-tka{background:var(--c-tka);}
   .ev-prakerin-edge{box-shadow:inset 0 0 0 2px var(--c-prakerin); color:var(--c-prakerin); font-weight:800; background:rgba(176,125,62,.08);}
   .ev-prakerin{background:var(--c-prakerin); color:#fff;}
   .ev-cuti{background:var(--c-cuti); color:var(--navy-950);}
@@ -277,18 +269,16 @@
   }
   .month-foot b{color:var(--navy-800);}
 
-  /* tooltip */
   .tooltip{
     position:fixed; z-index:50; pointer-events:none;
     background:var(--navy-950); color:#fff; font-size:11.5px;
-    padding:7px 10px; border-radius:8px; max-width:220px;
+    padding:7px 10px; border-radius:8px; max-width:240px;
     box-shadow:0 8px 20px rgba(0,0,0,.3);
     opacity:0; transition:opacity .12s ease;
     line-height:1.4;
   }
   .tooltip.show{opacity:1;}
 
-  /* ===================== RECAP ===================== */
   .recap-wrap{max-width:1180px; margin:0 auto 40px; padding:0 20px;}
   .recap-card{
     background:var(--navy-950); color:#fff; border-radius:18px;
@@ -315,6 +305,19 @@
   }
   .recap-pill .pv{font-size:26px; font-weight:800; color:var(--gold-400); font-family:Georgia,serif;}
   .recap-pill .pl{font-size:11px; color:rgba(255,255,255,.6); text-transform:uppercase; letter-spacing:.06em;}
+
+  .tka-note-wrap{max-width:1180px; margin:0 auto 40px; padding:0 20px;}
+  .tka-note{
+    background:var(--white); border-radius:16px; box-shadow:var(--shadow-card);
+    padding:22px 24px; border-left:5px solid var(--c-tka);
+  }
+  .tka-note h3{margin:0 0 10px; font-size:15px; color:var(--navy-900);}
+  .tka-note p{margin:0 0 8px; font-size:12.5px; color:var(--ink-soft); line-height:1.6;}
+  .tka-note table{width:100%; border-collapse:collapse; font-size:12px; margin-top:10px;}
+  .tka-note th, .tka-note td{padding:7px 8px; text-align:left; border-bottom:1px solid var(--paper-line);}
+  .tka-note th{background:var(--paper); font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft);}
+  .tka-note td b{color:var(--navy-800);}
+  .tka-note .src{margin-top:10px; font-size:11px; color:var(--ink-soft); font-style:italic;}
 
   footer{
     text-align:center; padding:20px; font-size:11.5px; color:var(--ink-soft);
@@ -384,6 +387,32 @@
 
 <main class="cal-grid" id="calGrid"></main>
 
+<section class="tka-note-wrap">
+  <div class="tka-note">
+    <h3>Rangkaian Pelaksanaan TKA &amp; Asesmen Nasional Jenjang SMK/MAK — TP 2026/2027</h3>
+    <p>Diperbarui berdasarkan Surat Kepala BSKAP Nomor 0212/B/F/SK.02.02/2026 tanggal 1 Juli 2026. Jadwal lama (26 Okt–5 Nov) sudah tidak dipakai; digantikan tahapan berikut.</p>
+    <table>
+      <thead><tr><th>Tahap</th><th>Tanggal</th></tr></thead>
+      <tbody>
+        <tr><td>Pendaftaran Peserta TKA dan AN</td><td><b>27 Jul – 27 Sep 2026</b></td></tr>
+        <tr><td>Simulasi TKA dan AN</td><td><b>21 – 27 Sep 2026</b></td></tr>
+        <tr><td>Gladi Bersih Gelombang 1</td><td><b>5 – 11 Okt 2026</b></td></tr>
+        <tr><td>Gladi Bersih Gelombang 2</td><td><b>12 – 18 Okt 2026</b></td></tr>
+        <tr><td>Pelaksanaan Gelombang 1</td><td><b>26 – 29 Okt 2026</b></td></tr>
+        <tr><td>Gelombang Khusus Mapel Wajib</td><td><b>31 Okt – 1 Nov 2026</b></td></tr>
+        <tr><td>Pelaksanaan Gelombang 2</td><td><b>2 – 5 Nov 2026</b></td></tr>
+        <tr><td>Gelombang Khusus Mapel Pilihan</td><td><b>7 – 8 Nov 2026</b></td></tr>
+        <tr><td>Susulan Gelombang 1</td><td><b>16 – 19 Nov 2026</b></td></tr>
+        <tr><td>Susulan Gelombang Khusus Mapel Wajib</td><td><b>21 – 22 Nov 2026</b></td></tr>
+        <tr><td>Susulan Gelombang 2</td><td><b>23 – 26 Nov 2026</b></td></tr>
+        <tr><td>Susulan Gelombang Khusus Mapel Pilihan</td><td><b>28 – 29 Nov 2026</b></td></tr>
+        <tr><td>Pengumuman Hasil TKA</td><td><b>23 Des 2026</b></td></tr>
+      </tbody>
+    </table>
+    <p class="src">Sumber: Surat Kepala BSKAP No. 0212/B/F/SK.02.02/2026, 1 Juli 2026 — Lampiran 1. Survei Lingkungan Belajar (Sulingjar) untuk kepala satuan &amp; pendidik juga dimajukan menjadi 20 Jul – 17 Agu 2026 (semula 3–31 Agu 2026).</p>
+  </div>
+</section>
+
 <section class="recap-wrap">
   <div class="recap-card">
     <div>
@@ -408,14 +437,14 @@
 </section>
 
 <footer>
-  Disusun berdasarkan SK Kalender Pendidikan TP 2026/2027 · <b>Curriculum & Material Develompent Team</b> Masohi, 18 Juni 2026
+  Disusun berdasarkan SK Kalender Pendidikan TP 2026/2027 &amp; Surat BSKAP No. 0212/B/F/SK.02.02/2026 · <b>Curriculum &amp; Material Development Team</b> Masohi, 1 Juli 2026
 </footer>
 
 <div class="tooltip" id="tooltip"></div>
 
 <script>
 /* ============================================================
-   DATA SUMBER — direkonstruksi dari Kalender Pendidikan TP 2026/2027
+   DATA SUMBER
    ============================================================ */
 
 const MONTHS = [
@@ -433,7 +462,6 @@ const MONTHS = [
   {name:"Juni", year:2027, m:6},
 ];
 
-// kategori untuk styling & logika notifikasi
 const CAT = {
   AKADEMIK: "akademik",
   MPLS: "mpls",
@@ -441,7 +469,8 @@ const CAT = {
   LIBUR_UMUM: "libur-umum",
   LIBUR_SEMESTER: "libur-semester",
   RAPOR: "rapor",
-  ASESMEN: "asesmen",   // ujian / asesmen / UKK / tes -> notifikasi 14 hari
+  ASESMEN: "asesmen",
+  TKA: "tka",
   PRAKERIN: "prakerin",
   CUTI: "cuti",
   RAKER: "raker",
@@ -449,18 +478,34 @@ const CAT = {
 
 function d(y,m,day){ return new Date(y, m-1, day); }
 
-// setiap event: {title, start, end, cat, isRange}
 const EVENTS = [
   {title:"Hari Pertama Masuk Sekolah", start:d(2026,7,13), end:d(2026,7,13), cat:CAT.AKADEMIK},
   {title:"Kegiatan MPLS", start:d(2026,7,13), end:d(2026,7,17), cat:CAT.MPLS},
   {title:"Awal Praktek Kerja Industri (Prakerin)", start:d(2026,7,1), end:d(2026,7,1), cat:CAT.PRAKERIN},
   {title:"Raker Sekolah", start:d(2026,7,20), end:d(2026,7,22), cat:CAT.RAKER},
+  {title:"Survei Lingkungan Belajar (Sulingjar) Kepala Satuan & Pendidik", start:d(2026,7,20), end:d(2026,8,17), cat:CAT.ASESMEN},
   {title:"Upacara HUT Kemerdekaan RI", start:d(2026,8,17), end:d(2026,8,17), cat:CAT.UPACARA},
   {title:"Libur Umum: Maulid Nabi Muhammad SAW", start:d(2026,9,5), end:d(2026,9,5), cat:CAT.LIBUR_UMUM},
+
+  /* ===== Rangkaian TKA & AN 2026 — Surat BSKAP No. 0212/B/F/SK.02.02/2026 ===== */
+  {title:"Pendaftaran Peserta TKA dan AN", start:d(2026,7,27), end:d(2026,9,27), cat:CAT.TKA},
+  {title:"Simulasi TKA dan AN", start:d(2026,9,21), end:d(2026,9,27), cat:CAT.TKA},
+  {title:"Gladi Bersih TKA dan AN — Gelombang 1", start:d(2026,10,5), end:d(2026,10,11), cat:CAT.TKA},
+  {title:"Gladi Bersih TKA dan AN — Gelombang 2", start:d(2026,10,12), end:d(2026,10,18), cat:CAT.TKA},
   {title:"Upacara Hari Kesaktian Pancasila", start:d(2026,10,1), end:d(2026,10,1), cat:CAT.UPACARA},
-  {title:"Tes Kemampuan Akademik", start:d(2026,10,26), end:d(2026,11,5), cat:CAT.ASESMEN},
+  {title:"Pelaksanaan TKA dan AN — Gelombang 1", start:d(2026,10,26), end:d(2026,10,29), cat:CAT.TKA},
+  {title:"TKA dan AN — Gelombang Khusus Mapel Wajib", start:d(2026,10,31), end:d(2026,11,1), cat:CAT.TKA},
   {title:"Upacara Peringatan Hari Sumpah Pemuda", start:d(2026,10,28), end:d(2026,10,28), cat:CAT.UPACARA},
+  {title:"Pelaksanaan TKA dan AN — Gelombang 2", start:d(2026,11,2), end:d(2026,11,5), cat:CAT.TKA},
+  {title:"TKA dan AN — Gelombang Khusus Mapel Pilihan", start:d(2026,11,7), end:d(2026,11,8), cat:CAT.TKA},
   {title:"Upacara Hari Pahlawan", start:d(2026,11,10), end:d(2026,11,10), cat:CAT.UPACARA},
+  {title:"TKA dan AN Susulan — Gelombang 1", start:d(2026,11,16), end:d(2026,11,19), cat:CAT.TKA},
+  {title:"TKA dan AN Susulan — Gelombang Khusus Mapel Wajib", start:d(2026,11,21), end:d(2026,11,22), cat:CAT.TKA},
+  {title:"TKA dan AN Susulan — Gelombang 2", start:d(2026,11,23), end:d(2026,11,26), cat:CAT.TKA},
+  {title:"TKA dan AN Susulan — Gelombang Khusus Mapel Pilihan", start:d(2026,11,28), end:d(2026,11,29), cat:CAT.TKA},
+  {title:"Pengumuman Hasil TKA", start:d(2026,12,23), end:d(2026,12,23), cat:CAT.AKADEMIK},
+  /* ===== akhir rangkaian TKA & AN ===== */
+
   {title:"Asesmen Sumatif Akhir Semester (Gasal)", start:d(2026,11,23), end:d(2026,12,1), cat:CAT.ASESMEN},
   {title:"Penyerahan Buku Laporan Hasil Belajar Semester Gasal", start:d(2026,12,18), end:d(2026,12,18), cat:CAT.RAPOR},
   {title:"Persiapan Nilai Semester Ganjil", start:d(2026,12,2), end:d(2026,12,14), cat:CAT.ASESMEN},
@@ -514,7 +559,8 @@ const CAT_LABEL = {
   [CAT.LIBUR_UMUM]: "Libur Umum / Nasional",
   [CAT.LIBUR_SEMESTER]: "Libur Semester",
   [CAT.RAPOR]: "Penyerahan Rapor",
-  [CAT.ASESMEN]: "Ujian / Asesmen / UKK / Tes",
+  [CAT.ASESMEN]: "Ujian / Asesmen / UKK / Sulingjar",
+  [CAT.TKA]: "Tes Kemampuan Akademik (TKA) & AN",
   [CAT.PRAKERIN]: "Praktek Kerja Industri",
   [CAT.CUTI]: "Cuti Bersama",
   [CAT.RAKER]: "Rapat Kerja",
@@ -527,6 +573,7 @@ const CAT_CLASS = {
   [CAT.LIBUR_SEMESTER]: "ev-libur-semester",
   [CAT.RAPOR]: "ev-rapor",
   [CAT.ASESMEN]: "ev-asesmen",
+  [CAT.TKA]: "ev-tka",
   [CAT.PRAKERIN]: "ev-prakerin",
   [CAT.CUTI]: "ev-cuti",
   [CAT.RAKER]: "ev-raker",
@@ -539,6 +586,7 @@ const CAT_COLORVAR = {
   [CAT.LIBUR_SEMESTER]: "var(--c-libur-semester)",
   [CAT.RAPOR]: "var(--c-rapor)",
   [CAT.ASESMEN]: "var(--c-asesmen)",
+  [CAT.TKA]: "var(--c-tka)",
   [CAT.PRAKERIN]: "var(--c-prakerin)",
   [CAT.CUTI]: "var(--c-cuti)",
   [CAT.RAKER]: "#9cc04a",
@@ -566,9 +614,8 @@ function fmtShort(date){
   return `${date.getDate()} ${bln[date.getMonth()]} ${date.getFullYear()}`;
 }
 const HARI = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
-const BULAN_FULL = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
 
-const TODAY = new Date(); // tanggal perangkat pengguna
+const TODAY = new Date();
 
 /* ============================================================
    RENDER KALENDER
@@ -584,7 +631,6 @@ function buildMonthCard(monthInfo){
   const {name, year, m} = monthInfo;
   const firstOfMonth = new Date(year, m-1, 1);
   const daysInMonth = new Date(year, m, 0).getDate();
-  // Senin=0 ... Minggu=6 (kalender Indonesia mulai Senin)
   let startOffset = firstOfMonth.getDay() - 1;
   if(startOffset < 0) startOffset = 6;
 
@@ -612,22 +658,19 @@ function buildMonthCard(monthInfo){
     const e = document.createElement('div'); e.className='day-cell empty'; grid.appendChild(e);
   }
 
-  let eventDaysCount = 0;
-
   for(let day=1; day<=daysInMonth; day++){
     const date = new Date(year, m-1, day);
     const cell = document.createElement('div');
     cell.className = 'day-cell';
-    const dow = date.getDay(); // 0=Min,6=Sab
+    const dow = date.getDay();
     if(dow===0 || dow===6) cell.classList.add('weekend');
 
     const evs = findEventsForDay(date);
     const prakerin = isPrakerinDay(date);
 
     if(evs.length){
-      eventDaysCount++;
-      // prioritas warna: ambil event pertama yang punya kelas warna penuh
-      const primary = evs.find(e=>CAT_CLASS[e.cat]) || evs[0];
+      const tkaEv = evs.find(e=>e.cat===CAT.TKA);
+      const primary = tkaEv || evs.find(e=>CAT_CLASS[e.cat]) || evs[0];
       if(CAT_CLASS[primary.cat]) cell.classList.add(CAT_CLASS[primary.cat]);
       cell.classList.add('event');
     } else if(prakerin){
@@ -675,7 +718,7 @@ function renderCalendar(){
    ============================================================ */
 const tooltipEl = document.getElementById('tooltip');
 function attachTooltip(el){
-  el.addEventListener('mouseenter', (e)=>{
+  el.addEventListener('mouseenter', ()=>{
     tooltipEl.textContent = el.dataset.tip;
     tooltipEl.style.whiteSpace = 'pre-line';
     tooltipEl.classList.add('show');
@@ -686,7 +729,6 @@ function attachTooltip(el){
   });
   el.addEventListener('mouseleave', ()=> tooltipEl.classList.remove('show'));
   el.addEventListener('click', ()=>{
-    // mobile: tampil singkat
     tooltipEl.textContent = el.dataset.tip;
     tooltipEl.style.whiteSpace = 'pre-line';
     tooltipEl.style.left = '50%'; tooltipEl.style.top = '50%';
@@ -706,7 +748,8 @@ function renderLegend(){
     [CAT.MPLS, "MPLS"],
     [CAT.RAKER, "Raker Sekolah"],
     [CAT.UPACARA, "Upacara / Akademik"],
-    [CAT.ASESMEN, "Ujian / Asesmen / UKK"],
+    [CAT.TKA, "TKA & AN"],
+    [CAT.ASESMEN, "Asesmen Lain / UKK / Sulingjar"],
     [CAT.RAPOR, "Penyerahan Rapor"],
     [CAT.LIBUR_UMUM, "Libur Umum"],
     [CAT.LIBUR_SEMESTER, "Libur Semester"],
@@ -738,11 +781,11 @@ function renderRecap(){
 }
 
 /* ============================================================
-   PROGRESS RIBBON (signature element)
+   PROGRESS RIBBON
    ============================================================ */
 function renderProgress(){
-  const start = d(2026,7,13); // hari pertama masuk sekolah
-  const end = d(2027,7,10);   // akhir libur semester genap / akhir tahun ajaran
+  const start = d(2026,7,13);
+  const end = d(2027,7,10);
   const totalSpan = daysBetween(start, end);
   let elapsed = daysBetween(start, TODAY);
   let pct;
@@ -773,25 +816,16 @@ function buildNotifications(){
   const notifs = [];
 
   EVENTS.forEach(ev=>{
-    const daysToStart = daysBetween(TODAY, ev.start); // positif = di masa depan
-    const isExamLike = ev.cat === CAT.ASESMEN;
-    let threshold = null;
-    let urgentThreshold = 1;
+    const daysToStart = daysBetween(TODAY, ev.start);
+    const isTKA = ev.cat === CAT.TKA;
+    const isExamLike = ev.cat === CAT.ASESMEN || isTKA;
+    let threshold = isExamLike ? 14 : 7;
 
-    if(isExamLike){
-      threshold = 14;
-    } else if(ev.cat === CAT.LIBUR_UMUM || ev.cat === CAT.LIBUR_SEMESTER || ev.cat === CAT.RAPOR || ev.cat === CAT.CUTI){
-      threshold = 7; // "1 minggu sebelumnya" untuk kategori penting lain
-    } else {
-      threshold = 7;
-    }
-
-    // Jika event sedang berlangsung hari ini
     const ongoing = inRange(TODAY, ev.start, ev.end);
 
     if(ongoing){
       notifs.push({
-        ev, kind: isExamLike ? 'exam' : 'urgent',
+        ev, kind: isTKA ? 'exam' : (isExamLike ? 'exam' : 'urgent'),
         title: `${ev.title} — berlangsung hari ini`,
         desc: ev.start.getTime()===ev.end.getTime()
           ? `Kegiatan ini dijadwalkan hari ini, ${fmtShort(TODAY)}.`
@@ -802,10 +836,10 @@ function buildNotifications(){
     } else if(daysToStart > 0 && daysToStart <= threshold){
       const within1Day = daysToStart <= 1;
       notifs.push({
-        ev, kind: isExamLike ? 'exam' : (within1Day ? 'urgent' : 'normal'),
+        ev, kind: isTKA ? 'exam' : (isExamLike ? 'exam' : (within1Day ? 'urgent' : 'normal')),
         title: ev.title,
         desc: isExamLike
-          ? `Dimulai dalam ${daysToStart} hari (ambang notifikasi: 14 hari untuk kategori Ujian/Asesmen/UKK/Tes).`
+          ? `Dimulai dalam ${daysToStart} hari (ambang notifikasi: 14 hari untuk TKA/AN/Asesmen/UKK).`
           : `Dimulai dalam ${daysToStart} hari.`,
         when: `Mulai ${fmtShort(ev.start)}`,
         sortKey: daysToStart,
@@ -833,7 +867,7 @@ function renderNotifications(){
   list.slice(0, 6).forEach(n=>{
     const card = document.createElement('div');
     card.className = 'notif ' + (n.kind==='urgent' ? 'urgent' : n.kind==='exam' ? 'exam' : '');
-    const iconLabel = n.kind==='exam' ? 'UJI' : n.kind==='urgent' ? '!' : '•';
+    const iconLabel = n.kind==='exam' ? 'TKA' : n.kind==='urgent' ? '!' : '•';
     card.innerHTML = `
       <div class="notif-icon">${iconLabel}</div>
       <div class="notif-body">
